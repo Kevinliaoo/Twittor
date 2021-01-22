@@ -1,0 +1,107 @@
+import React, { useState, useEffect } from 'react'; 
+import { connect } from 'react-redux';
+
+import config from '../config';
+
+import '../assets/styles/pages/Login.css';
+
+const Register = props => {
+    const [form, setValues] = useState({
+        firstName: '', 
+        lastName: '', 
+        username: '', 
+        password: '', 
+        repeatPsw: '',
+    })
+
+    const handleInput = event => {
+        setValues({
+            ...form, 
+            [event.target.name]: event.target.value, 
+        })
+    }
+    const goBack = () => props.history.push('/login');
+    const handleSubmit = event => {
+        event.preventDefault();
+        props.registerRequest(form);
+        props.history.push('/');
+    }
+    // Checks if all fields of the form is completed
+    const checkAllFieldsCompleted = () => {
+        const hasValue = Object.values(form).map(value => value.length > 0)
+        let res = 0; 
+        hasValue.map(val => val===true ? res++ : '');
+        return res === 5;
+    }
+    useEffect(() => {
+        const registerButton = document.getElementById('registerbtn'); 
+        if(checkAllFieldsCompleted()) {
+            registerButton.disabled = false; 
+            registerButton.style.backgroundColor = config.colors.enabledButton; 
+        } else {
+            registerButton.disabled = true; 
+            registerButton.style.backgroundColor = config.colors.disabledButton;
+        }
+    }, [form])
+    return (
+        <>
+            <section className="formContainer">
+                <h2 className="title">Create your account</h2>
+                <form className="form" onSubmit={handleSubmit}>
+                    <input 
+                        className = 'input'
+                        type = "text"
+                        name = "firstName" 
+                        placeholder = "First name: "
+                        onChange = {handleInput}
+                    />
+                    <input 
+                        className = 'input'
+                        type = "text"
+                        name = "lastName" 
+                        placeholder = "Last name: "
+                        onChange = {handleInput}
+                    />
+                    <input 
+                        className = 'input'
+                        type = "text"
+                        name = "username" 
+                        placeholder = "Username: "
+                        onChange = {handleInput}
+                    />
+                    <input 
+                        className = 'input'
+                        type = "password"
+                        name = "password" 
+                        placeholder = "Password: "
+                        onChange = {handleInput}
+                    />
+                    <input 
+                        className = 'input'
+                        type = "password"
+                        name = "repeatPsw" 
+                        placeholder = "Repeat password: "
+                        onChange = {handleInput}
+                    />
+                    <button className="registerbtn" id="registerbtn">
+                        Register
+                    </button>
+                    <button className="cancelbtn" onClick={goBack}>
+                        Cancel
+                    </button>
+                </form>
+            </section>
+        </>
+    )
+}
+
+const mapDispatchesToProps = dispatch => ({
+    registerRequest(payload) {
+        dispatch({
+            type: 'REGISTER_REQUEST',
+            payload
+        })
+    }, 
+}); 
+
+export default connect(null, mapDispatchesToProps)(Register);

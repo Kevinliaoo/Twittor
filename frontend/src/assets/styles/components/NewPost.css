@@ -1,0 +1,55 @@
+* {
+    border: 0px; 
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.profilepicture {
+    height: 5vh; 
+    width: 5vh;
+    margin-left: 3px;
+}
+
+.newpost {
+    display: flex; 
+    flex-direction: column;
+    margin-bottom: 1vh;
+    border-bottom: 1px solid rgb(134, 145, 141);
+    padding: 2vh;
+}
+
+.content {
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.content__input {
+    flex-grow: 2;
+    color: white;
+    font-size: 20px;
+    padding-left: 1vw;
+    padding-top: 2vh;
+    margin-left: 1vw;
+    overflow: scroll; 
+    outline: none;
+    height: 5vh;
+}
+::placeholder {
+    color: rgba(255, 255, 255, 0.7); 
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.twitbutton {
+    margin-top: 3vh;
+    width: 8vw;
+    height: 6vh;
+    border-radius: 25px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: white; 
+    background-color: rgb(3, 194, 252);
+}

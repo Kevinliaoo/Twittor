@@ -1,0 +1,18 @@
+* {
+    margin: 0px; 
+    padding: 0px;
+}
+
+.header {
+    max-height: 9vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 7vh;
+    height: 7vh;
+    margin-top: 2vh;
+}
