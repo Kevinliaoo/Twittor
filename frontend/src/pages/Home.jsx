@@ -1,9 +1,10 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
 
-import config from '../config';
+import Postslist from '../components/Postslist';
 import NewPost from '../components/NewPost';
-import Post from '../components/Post';
+import Navbar from '../components/Navbar';
+import Search from '../components/Search';
 
 import '../assets/styles/pages/Home.css'
 
@@ -13,20 +14,16 @@ const Home = props => {
         props.history.push('/login');
     }
     return(
-        <div className="content">
+        <div className="homepage__content">
             <div className="left">
+                <Navbar />
             </div>
             <div className="middle">
                 <NewPost />
-                <Post 
-                    pictureURL = {config.images_URLs.user}
-                    firstName = "Kevin"
-                    lastName = "Liao"
-                    username = "kevinliaoo" 
-                    content = "Hola mundo, este es mi primer post"
-                />
+                <Postslist />
             </div>
             <div className="right">
+                <Search />
             </div>
         </div>
     )

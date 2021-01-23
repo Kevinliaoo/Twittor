@@ -1,0 +1,27 @@
+.searchsection {
+    display: flex; 
+    flex-direction: column;
+}
+
+.searchbar {
+    display: flex;
+}
+
+.searchuser {
+    background-color: rgba(133, 140, 135, 0.5);
+    width: 13vw;
+    height: 5vh;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    padding-left: 1.4vw;
+    font-size: 16px;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.searchbutton {
+    height: 6vh;
+    width: 6vh;
+    margin-left: -1vh;
+    margin-top: -0.5vh;
+}

@@ -4,12 +4,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.profilepicture {
-    height: 5vh; 
-    width: 5vh;
-    margin-left: 3px;
-}
-
 .newpost {
     display: flex; 
     flex-direction: column;
@@ -18,9 +12,16 @@
     padding: 2vh;
 }
 
-.content {
+.newpost__content {
     display: flex; 
     justify-content: flex-start;
+}
+
+.newpost__profilepic {
+    height: 5vh; 
+    width: 5vh;
+    margin-top: 1vw;
+    margin-left: 3px;
 }
 
 .content__input {

@@ -1,18 +1,21 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom';
 
 import config from '../config';
+
+import '../assets/styles/components/Navbar.css';
 
 const Navbar = () => {
     return (
         <div className="navbar">
-            <div className="navbar__section">
-                <img src={config.LOGO_URL.home} />
+            <Link className="navbar__section" to="/">
+                <img src={config.images_URLs.home} alt="Home logo" />
                 <p>Home</p>
-            </div>
-            <div className="navbar__section">
-                <img src={config.LOGO_URL.profile} />
+            </Link>
+            <Link className="navbar__section" to="/profile">
+                <img src={config.images_URLs.profile} alt="Profile logo" />
                 <p>Profile</p>
-            </div>
+            </Link>
         </div>
     )
 }

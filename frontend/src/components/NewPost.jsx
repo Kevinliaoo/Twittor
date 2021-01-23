@@ -35,8 +35,8 @@ class NewPost extends React.Component {
     render() {
         return (
             <div className="newpost">
-                <div className="content">
-                    <img className="profilepicture" src={config.images_URLs.user} alt="Profile picture" />
+                <div className="newpost__content">
+                    <img className="newpost__profilepic" src={config.images_URLs.user} alt="Profile picture" />
                     <textarea 
                         className = "content__input" 
                         id = "content__input"
