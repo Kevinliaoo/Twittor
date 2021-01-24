@@ -5,9 +5,10 @@ const swaggerUi = require('swagger-ui-express');
 const db = require('./db');
 const config = require('../config');
 const errors = require('../network/errors');
-const routes = require('../network/routes'); 
+const routes = require('../network/routes');
 
-db(config.db.DB_URL); 
+const DB_URL = `mongodb+srv://${config.db.dbUsername}:${config.db.dbPsw}@${config.db.dbHost}/${config.db.dbName}?retryWrites=true&w=majority`;
+db(DB_URL); 
 
 const app = express();
 

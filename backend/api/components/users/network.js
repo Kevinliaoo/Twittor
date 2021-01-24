@@ -22,6 +22,7 @@ router.get('/:username', (req, res) => {
         })
 })
 
+// secure es un middleware
 router.put('/', secure('update'), (req, res) => {
     // Sólamente hace falta mandar el uid del usuario 
     // El primer callback se encargará de encontrar los datos del usuario 
