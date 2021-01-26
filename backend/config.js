@@ -12,6 +12,7 @@ const config = {
     }, 
     auth: {
         secret: process.env.SECRET,
+        session_secret: process.env.SESSION_SECRET,
     }
 }
 

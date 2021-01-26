@@ -21,18 +21,12 @@ const getUserById = async uid => {
     }
 }
 
-const getUser = async username => {
-    if(!username) {
-        return null; 
-    }
-    const filter = {
-        username: username
-    }
+const getUser = async filter => {
     const user = await Model.find(filter);
     if(user.length === 0) {
         return false; 
     }
-    return user[0];
+    return user;
 }
 
 const updateUser = async (username, data) => {

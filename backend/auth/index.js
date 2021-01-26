@@ -5,7 +5,7 @@ const error = require('../utils/error');
 const sign = data => {
     // Create token 
     return jwt.sign(data.toJSON(), secret);
-}
+} 
 
 const verify = token => {
     /**

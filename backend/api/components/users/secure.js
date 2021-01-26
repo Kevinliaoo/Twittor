@@ -1,7 +1,6 @@
 const auth = require('../../../auth');
 
 module.exports = checkauth = (action) => {
-    // This is a callback function 
     const middleware = (req, res, next) => {
         // next() ejecuta la próxima función después de este callback 
         // En este caso, ejecuta el siguiente callbac en network.js

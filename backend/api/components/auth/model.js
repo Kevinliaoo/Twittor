@@ -8,11 +8,6 @@ const mySchema = Schema({
         required: true, 
         unique: true, 
     }, 
-    username: {
-        type: String, 
-        required: true, 
-        unique: true, 
-    }, 
     password: String, 
     firstName: String, 
 })

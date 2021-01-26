@@ -23,7 +23,13 @@ const addUser = data => {
             email: data.email,
             following: [], 
             followers: [], 
-            password: hashedPsw, 
+        }
+
+        // Check repeated usernames
+        const exists = (await store.get({username: userData.username})).length > 0;
+        if(exists) {
+            reject('Username already exists');
+            return
         }
 
         // Insert new user in database 
@@ -36,8 +42,7 @@ const addUser = data => {
 
         await auth.createUser({
             uid: newUser._id, 
-            username: newUser.username,
-            password: newUser.password, 
+            password: hashedPsw, 
         })
 
         resolve('User created');

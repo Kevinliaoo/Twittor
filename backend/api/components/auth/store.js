@@ -10,10 +10,10 @@ async function addUser(userData) {
     }
 } 
 
-const query = async(username) => {
-    // Search user by username
+const query = async(uid) => {
+    // Search user by uid
     const user = await Model.findOne({
-        username: username, 
+        uid: uid, 
     })
     return user || null; 
 }
@@ -34,7 +34,5 @@ const updateUser = async(uid, data) => {
 }
 
 module.exports = {
-    add: addUser, 
     query, 
-    update: updateUser,
 }

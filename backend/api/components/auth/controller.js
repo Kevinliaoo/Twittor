@@ -16,10 +16,9 @@ function createUser(data) {
     return store.add(authData);
 } 
 
-const login = async (username, password) => {
+const login = async (uid, password) => {
     // Get user data
-    const data = await store.query(username); 
-    console.log(data);
+    const data = await store.query(uid); 
 
     // Password checking 
     const samePassword = await utils.compare(password, data.password)
@@ -36,7 +35,5 @@ const updateUser = async (uid, newData) => {
 }
 
 module.exports = {
-    createUser,
     login, 
-    updateUser, 
 }
