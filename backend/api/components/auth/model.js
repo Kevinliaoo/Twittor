@@ -8,8 +8,14 @@ const mySchema = Schema({
         required: true, 
         unique: true, 
     }, 
-    password: String, 
-    firstName: String, 
+    username: {
+        type: String,
+        required: true, 
+    },
+    password: {
+        type: String, 
+        required: true
+    }, 
 })
 
 const model = mongoose.model('auth', mySchema); 

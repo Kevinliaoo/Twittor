@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import config from '../config';
 
@@ -19,8 +20,17 @@ const Login = props => {
     }
     const handleSubmit = event => {
         event.preventDefault(); 
-        props.loginRequest(form);
-        props.history.push('/');
+        const URL = `${config.host_URL}/api/auth/login`;
+        axios.post(URL, form)
+            .then(response => {
+                console.log(response.data.body)
+                props.loginRequest(response.data.body.user);
+                props.getjwt(response.data.body.jwt)
+                props.history.push('/');
+            })
+            .catch(e => {
+                alert('Incorrect data');
+            })
     }
     useEffect(() => {
         const loginButton = document.getElementById('loginform__submit');
@@ -71,6 +81,12 @@ const mapDispatchesToProps = dispatch => ({
             payload
         })
     }, 
+    getjwt(payload) {
+        dispatch({
+            type: 'GET_JWT', 
+            payload
+        })
+    }
 }); 
 
 export default connect(null, mapDispatchesToProps)(Login);

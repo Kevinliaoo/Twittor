@@ -2,22 +2,23 @@
 const store = require('./store');
 const utils = require('../../utils');
 const auth = require('../auth/controller');
+const messages = require('../../../config').error_mesages;
 
 const addUser = data => {
     return new Promise(async (resolve, reject) => {
         // Filtering 
         if(data === null) {
-            reject('Missing data'); 
+            reject(messages.missing_data); 
             return false; 
         } 
         if(data.password !== data.repeatPsw) {
-            reject('Passwords does not match'); 
+            reject(messages.psw_not_match); 
             return false; 
         } 
         const hashedPsw = await utils.encryptPassword(data.password); 
 
         const userData = {
-            username: data.username, 
+            username: data.username.toLowerCase(), 
             firstName: data.firstName, 
             lastName: data.lastName, 
             email: data.email,
@@ -28,7 +29,7 @@ const addUser = data => {
         // Check repeated usernames
         const exists = (await store.get({username: userData.username})).length > 0;
         if(exists) {
-            reject('Username already exists');
+            reject(messages.user_exists);
             return
         }
 
@@ -36,12 +37,13 @@ const addUser = data => {
         const newUser = await store.add(userData); 
         // Handle results 
         if(newUser === false) {
-            reject('Unable to create this user');
+            reject(messages.unable);
             return false; 
         }
 
         await auth.createUser({
             uid: newUser._id, 
+            username: newUser.username,
             password: hashedPsw, 
         })
 

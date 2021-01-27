@@ -29,9 +29,12 @@ const Home = props => {
     )
 }
 
-const mapStateToProps = state => ({
-    posts: state.posts, 
-    user: state.user,
-})
+const mapStateToProps = state => {
+    console.log(state); 
+    return {
+        posts: state.posts, 
+        user: state.user,
+    }
+}
 
 export default connect(mapStateToProps, null)(Home); 

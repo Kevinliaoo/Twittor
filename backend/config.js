@@ -13,6 +13,12 @@ const config = {
     auth: {
         secret: process.env.SECRET,
         session_secret: process.env.SESSION_SECRET,
+    },
+    error_mesages: {
+        missing_data: "Missing data",
+        psw_not_match: "Passwords do not match", 
+        user_exists: "Username already exists",
+        unable: "Unable to create this user",
     }
 }
 

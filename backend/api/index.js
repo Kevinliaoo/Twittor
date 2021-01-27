@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const flash = require('express-flash');
 const session = require('express-session');
+const cors = require('cors'); 
 
 const db = require('./db');
 const config = require('../config');
 const errors = require('../network/errors');
 const routes = require('../network/routes');
 const notFoundHandler = require('../network/notFound');
-const passport = require('passport');
 
 const DB_URL = `mongodb+srv://${config.db.dbUsername}:${config.db.dbPsw}@${config.db.dbHost}/${config.db.dbName}?retryWrites=true&w=majority`;
 db(DB_URL); 
@@ -25,8 +25,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }))
-app.use(passport.initialize()); 
-app.use(passport.session());
+app.use(cors());
 
 // Routes
 routes(app); 

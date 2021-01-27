@@ -1,4 +1,5 @@
 const store = require("./store");
+const userStore = require('../users/store');
 const auth = require('../../../auth');
 const utils = require('../../utils');
 
@@ -16,15 +17,25 @@ function createUser(data) {
     return store.add(authData);
 } 
 
-const login = async (uid, password) => {
+const login = async (username, password) => {
+    username = username.toLowerCase();
     // Get user data
-    const data = await store.query(uid); 
+    const data = await store.query(username); 
+    if(!data) {
+        throw new Error('Invalid information'); 
+    }
+    const user = (await userStore.get({username: username}))[0];
 
     // Password checking 
-    const samePassword = await utils.compare(password, data.password)
+    const samePassword = await utils.compare(password, data.password); 
+
     if(samePassword) {
         // Generar el token 
-        return auth.sign(data);
+        const jwt = auth.sign(data)
+        return {
+            jwt: jwt, 
+            user: user
+        }
     } else {
         throw new Error('Invalid infromation');
     }
@@ -36,4 +47,5 @@ const updateUser = async (uid, newData) => {
 
 module.exports = {
     login, 
+    createUser,
 }

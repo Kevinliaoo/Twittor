@@ -13,7 +13,7 @@ const mySchema = Schema({
     email: {
         type: String, 
         unique: true,
-        required: true,
+        required: false,
     }, 
     following: [
         {

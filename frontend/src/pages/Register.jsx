@@ -24,8 +24,16 @@ const Register = props => {
     const goBack = () => props.history.push('/login');
     const handleSubmit = event => {
         event.preventDefault();
-        props.registerRequest(form);
-        props.history.push('/');
+        axios.post(`${config.host_URL}/api/users`, form)
+            .then(response => {
+                props.history.push('/login');
+                alert('User created succesfully')
+            })
+            .catch(e => {
+                // e.response.data.body
+                console.log(e.response.data.body)
+                alert('Error')
+            })
     }
     // Checks if all fields of the form is completed
     const checkAllFieldsCompleted = () => {

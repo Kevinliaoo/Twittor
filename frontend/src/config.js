@@ -13,6 +13,7 @@ const config = {
         search: "https://img.icons8.com/material-rounded/24/ffffff/google-web-search.png",
         arrow: "https://img.icons8.com/ios-filled/50/ffffff/chevron-left.png",
     }, 
+    host_URL: "http://localhost:3001",
     LOGO_URL: "https://img.icons8.com/metro/26/ffffff/bird.png"
 }
 

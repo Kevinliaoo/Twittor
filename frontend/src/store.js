@@ -1,22 +1,9 @@
 import { createStore, compose } from 'redux';
 
 const initialState = {
-    user: {
-        id: 1, 
-        firstName: 'Kevin', 
-        lastName: 'Liao',
-        username: 'kevinliaoo',
-    }, 
-    searchUser: {
-        id: 1, 
-        firstName: 'Kevin', 
-        lastName: 'Liao',
-        username: 'kevinliaoo',
-        portraitimg: 'https://pbs.twimg.com/profile_banners/44196397/1576183471/1500x500', 
-        profilepic: 'https://media-exp1.licdn.com/dms/image/C4D35AQGX3EZWy7rfLA/profile-framedphoto-shrink_400_400/0/1608738904912?e=1611504000&v=beta&t=K3LjnV4yymRiJJ_TBukZqLFTlPixLnpn-TxL376WmBo', 
-        followers: [1, 2, 3], 
-        following: [1, 2, 3 ,4, 5, 6],
-    },
+    jwt: "",
+    user: {},
+    searchUser: {},
     token: {}, 
     posts: [
         {
