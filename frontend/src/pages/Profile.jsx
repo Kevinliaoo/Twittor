@@ -11,7 +11,7 @@ import config from '../config';
 import '../assets/styles/pages/Profile.css';
 
 const Profile = props => {
-    const { user, posts } = props;
+    const { searchUser, posts } = props;
     return (
         <div className="homepage__content">
             <div className="left">
@@ -23,18 +23,26 @@ const Profile = props => {
                         <img className="arrowimg" src={config.images_URLs.arrow} alt="Prev" />
                     </Link>
                     <div className="userinfo">
-                        <p className="userinfo__name">{`${user.firstName} ${user.lastName}`}</p>
+                        <p className="userinfo__name">{`${searchUser.firstName} ${searchUser.lastName}`}</p>
                         <p className="userinfo__postscount">{`${posts.length} posts`}</p>
                     </div>
                 </div>
                 <div className="profilecontent">
-                    <img src={user.portraitimg} alt="Portrait image" className="portrait"/>
+                    <img 
+                        src={searchUser.portraitimg || config.images_URLs.default_portrait} 
+                        alt="Portrait image" 
+                        className="portrait"
+                    />
                     <div className="userprofile">
-                        <img src={user.profilepic} alt="" className="userprofile__profilepicture"/>
+                        <img 
+                            src={searchUser.profilepic || config.images_URLs.default_profile} 
+                            alt="User's profile pictire" 
+                            className="userprofile__profilepicture"
+                        />
                         <div className="userprofile__userinfo">
-                            <p className="userinfo__name">{`${user.firstName} ${user.lastName}`}</p>
-                            <p className="userprofile__username">{`@${user.username}`}</p>
-                            <p>{`${user.following.length} Following  ${user.followers.length} Followers`}</p>
+                            <p className="userinfo__name">{`${searchUser.firstName} ${searchUser.lastName}`}</p>
+                            <p className="userprofile__username">{`@${searchUser.username}`}</p>
+                            <p>{`${searchUser.following.length} Following  ${searchUser.followers.length} Followers`}</p>
                         </div>
                     </div>
                 </div>
@@ -48,7 +56,8 @@ const Profile = props => {
 }
 
 const mapStateToProps = state => ({
-    user: state.searchUser,
+    searchUser: state.searchUser,
+    user: state.user,
     posts: state.posts,
 });
 

@@ -23,7 +23,6 @@ const Login = props => {
         const URL = `${config.host_URL}/api/auth/login`;
         axios.post(URL, form)
             .then(response => {
-                console.log(response.data.body)
                 props.loginRequest(response.data.body.user);
                 props.getjwt(response.data.body.jwt)
                 props.history.push('/');

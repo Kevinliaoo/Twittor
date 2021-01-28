@@ -40,10 +40,26 @@ const reducer = (state=initialState, action) => {
                 ...state, 
                 user: action.payload
             };
+        case 'LOGOUT_REQUEST': 
+            return {
+                ...state, 
+                user: {}, 
+                jwt: "",
+            }
+        case "GET_JWT":
+            return {
+                ...state, 
+                jwt: action.payload
+            } 
         case 'REGISTER_REQUEST': 
             return {
                 ...state, 
                 user: action.payload
+            }
+        case 'CHANGE_SEARCH_USER': 
+            return {
+                ...state, 
+                searchUser: action.payload
             }
         default: 
             return state;

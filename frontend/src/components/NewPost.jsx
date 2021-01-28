@@ -1,8 +1,10 @@
 import React from 'react'; 
+import axios from 'axios';
 
 import config from '../config';
 
 import '../assets/styles/components/NewPost.css';
+import { connect } from 'react-redux';
 
 class NewPost extends React.Component {
     constructor(props) {
@@ -17,7 +19,22 @@ class NewPost extends React.Component {
     }
 
     handleClick() {
-        console.log("Button clicked")
+        const input = document.getElementById('content__input'); 
+        const { user } = this.props;
+        const config_ = {
+            headers: { Authorization: `Bearer ${this.props.jwt}` }
+        }; 
+        const bodyParameters = {
+            uid: user._id, 
+            content: input.value
+        };
+        const URL = `${config.host_URL}/api/posts/`;
+        axios.post(URL, bodyParameters, config_)
+            .then(res => {
+                input.value = ""; 
+                alert('New post posted');
+            })
+            .catch(e => console.log(e))
     }
 
     handleTextarea() {
@@ -46,7 +63,7 @@ class NewPost extends React.Component {
                     />
                 </div>
                 <div className="buttons">
-                    <button id="twitbutton" className="twitbutton" onClick={this.handleClick}>
+                    <button id="twitbutton" className="twitbutton" onClick={this.handleClick.bind(this)}>
                         Twit
                     </button>
                 </div>
@@ -55,4 +72,9 @@ class NewPost extends React.Component {
     }
 }
 
-export default NewPost; 
+const mapStateToProps = state => ({
+    jwt: state.jwt,
+    user: state.user,
+})
+
+export default connect(mapStateToProps, null)(NewPost);
