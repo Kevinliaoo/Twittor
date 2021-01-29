@@ -22,6 +22,7 @@
     width: 5vh;
     margin-top: 1vw;
     margin-left: 3px;
+    object-fit: cover;
 }
 
 .content__input {

@@ -13,9 +13,8 @@ const createPost = async data => {
             reject('Not message content');
             return false; 
         }
-        if(!data.date) {
-            data.date = Date.now();
-        }
+        
+        data.date = new Date().toISOString();
         data.likes = [];
 
         const newPost = await store.post(data);
@@ -33,6 +32,14 @@ const getPosts = uid => {
         if(!uid) reject('Not UID');
         const posts = await store.get(uid); 
         resolve(posts);
+    })
+}
+
+const getPost = postId => {
+    return new Promise(async (resolve, reject) => {
+        const post = await store.getById(postId); 
+        if(post) return resolve(post)
+        reject('');
     })
 }
 
@@ -77,6 +84,7 @@ const deletePost = postId => {
 module.exports = {
     createPost,
     getPosts, 
+    getPost,
     like, 
     deletePost, 
 }

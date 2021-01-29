@@ -1,0 +1,61 @@
+.edit_profile_content {
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 2;
+    width: 50%;
+    margin-left: -4vw;
+    margin-top: 4vh;
+}
+
+.tittle_wrapper {
+    display: flex; 
+    justify-content: space-around;
+    margin-bottom: 2vh;
+}
+
+.edit_profile__form {
+    display: flex; 
+    flex-direction: column;
+}
+
+.form__input, .form__textarea {
+    height: 7vh;
+    margin-bottom: 20px;
+    border: 1px solid rgb(204, 200, 200);
+    border-radius: 25px;
+    font-size: 18px;
+    outline: none;
+    color: white;
+    padding-left: 2vw;
+}
+
+.form__textarea {
+    padding-top: 2.2vh;
+    height: 14vh;
+}
+
+.form__buttons {
+    display: flex; 
+    justify-content: space-around;
+    margin-bottom: 15vh;
+}
+
+.save_button, .cancel_button {
+    width: 20vw; 
+    height: 7vh;
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(3, 194, 252);
+    font-size: 16px;
+    margin-bottom: 2vh;
+}
+.save_button:hover {
+    background-color: rgba(3, 194, 252, 0.7);
+}
+
+.cancel_button {
+    background-color: rgb(255, 54, 54);
+}
+.cancel_button:hover {
+    background-color: rgba(255, 54, 54, 0.7);
+}

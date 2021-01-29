@@ -2,14 +2,15 @@ import React from 'react';
 import axios from 'axios';
 
 import config from '../config';
+import localStorage from '../utils/localStorage';
 
 import '../assets/styles/components/NewPost.css';
-import { connect } from 'react-redux';
 
 class NewPost extends React.Component {
     constructor(props) {
         super(props); 
         this.state = {};
+        this.user = localStorage.getUser() || {};
     }
 
     componentDidMount() {
@@ -20,9 +21,10 @@ class NewPost extends React.Component {
 
     handleClick() {
         const input = document.getElementById('content__input'); 
-        const { user } = this.props;
+        const user = localStorage.getUser();
+        const jwt = localStorage.getJwt()
         const config_ = {
-            headers: { Authorization: `Bearer ${this.props.jwt}` }
+            headers: { Authorization: `Bearer ${jwt}` }
         }; 
         const bodyParameters = {
             uid: user._id, 
@@ -53,7 +55,11 @@ class NewPost extends React.Component {
         return (
             <div className="newpost">
                 <div className="newpost__content">
-                    <img className="newpost__profilepic" src={config.images_URLs.user} alt="Profile picture" />
+                    <img 
+                        className="newpost__profilepic" 
+                        src={this.user.profileURL || config.images_URLs.default_profile} 
+                        alt="Profile picture" 
+                    />
                     <textarea 
                         className = "content__input" 
                         id = "content__input"
@@ -77,4 +83,4 @@ const mapStateToProps = state => ({
     user: state.user,
 })
 
-export default connect(mapStateToProps, null)(NewPost);
+export default NewPost;

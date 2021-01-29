@@ -48,4 +48,5 @@ const updateUser = async (uid, newData) => {
 module.exports = {
     login, 
     createUser,
+    updateUser,
 }

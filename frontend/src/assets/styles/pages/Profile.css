@@ -46,6 +46,24 @@
     object-fit: cover;
 }
 
+.image_and_button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.followBtn {
+    font-size: 20px;
+    margin-right: 1.2vw;
+    margin-top: 0.2vh;  
+    background-color: rgb(3, 194, 252);
+    height: 5vh;
+    padding: 1vh 1.5vw;
+    border-radius: 25px;
+}
+.followBtn:hover {
+    background-color: rgba(3, 194, 252, 0.4);
+}
+
 .userprofile__userinfo {
     margin-top: 1vh;
     margin-left: 1vw;
@@ -56,4 +74,22 @@
     color: rgba(255, 255, 255, 0.6);
     margin-top: 0.2vh;
     margin-bottom: 1vh;
+}
+
+.userprofile__bio {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2vh;
+}
+
+.userprofile__follows {
+    display: flex;
+}
+
+.follow:hover {
+    cursor: pointer;
+}
+
+.userprofile__dot {
+    margin-right: 0.5vw; 
+    margin-left: 0.5vw;
 }

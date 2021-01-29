@@ -54,37 +54,47 @@ const addUser = data => {
 const update = data => {
     return new Promise(async (resolve, reject) => {
 
-        if(data.body.password) {
-            if(data.body.password !== data.body.repeatPsw) {
-                reject('Passwords does not match');
-                return false; 
+        let authData = {}
+        if(data.username) {
+            authData.username = data.username.trim().toLowerCase(); 
+        }
+
+        if(data.password && data.repeatPsw) {
+            if(data.password !== data.repeatPsw) {
+                reject('Passwords do not match');
+                return false;
             }
-            const hashedPsw = await utils.encryptPassword(data.body.password); 
-            data.body.password = hashedPsw; 
-            const newData = {
-                password: hashedPsw,
-            }
-            const result = await auth.updateUser(data.user.uid, newData);
+            const hashedPsw = await utils.encryptPassword(data.password); 
+            delete data.repeatPsw;
+            delete data.password; 
+            authData.password = hashedPsw;
+        } else if ((data.password && ! data.repeatPsw) || (!data.password && data.repeatPsw)) {
+            return reject('Missing password');
+        }
+
+        if(Object.keys(authData).length > 0) {
+            const result = await auth.updateUser(data.uid, authData);
             if(result === false) {
                 reject('Unable to edit data'); 
                 return false; 
             } 
-
         }
 
-        const user = await store.update(data.user.username, data.body); 
+        const uid = data.uid; 
+        delete data.uid;
 
-        if(user === false) {
-            reject('Unable to edit data'); 
-            return false; 
+        const result = store.update(uid, data); 
+
+        if(result) {
+            return resolve('Done')
         }
-        resolve('Data updated');
+        return reject('Internal error');
     })
 }
 
 const getUser = username => {
     return new Promise(async (resolve, reject) => {
-        const user = await store.get(username);
+        const user = await store.get({username: username});
         if(user === false) {
             reject('User does not exist'); 
             return false; 
@@ -93,8 +103,41 @@ const getUser = username => {
     })
 }
 
+const getUserById = _id => {
+    return new Promise(async (resolve, reject) => {
+        const user = await store.getById(_id); 
+        if(user) return resolve(user); 
+        reject(false);
+    })
+}
+
+const follow = (following, follower) => {
+    return new Promise(async (resolve, reject) => {
+        const result = await store.addFollower(following, follower);
+
+        if(result === false) return reject('User does not exist')
+        else resolve('Done')
+    })
+}
+
+const unfollow = (following, follower) => {
+    return new Promise(async (resolve, reject) => {
+        const result_ = await store.removeFollower(following, follower);
+
+        if (result_ === true) {
+            resolve('done')
+            return;
+        } else {
+            reject('Internal error')
+        }
+    })
+}
+
 module.exports = {
     addUser,
     update, 
     getUser, 
+    getUserById, 
+    follow, 
+    unfollow,
 }

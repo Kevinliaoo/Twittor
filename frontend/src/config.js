@@ -7,6 +7,7 @@ const config = {
         logo: "https://img.icons8.com/ios/50/000000/top-view-bird.png", 
         comments: "https://img.icons8.com/material-sharp/24/ffffff/topic--v1.png",
         like: "https://img.icons8.com/material/24/ffffff/facebook-like--v1.png", 
+        like_red: "https://img.icons8.com/material-rounded/24/fa314a/facebook-like--v1.png",
         user: "https://img.icons8.com/metro/26/ffffff/user-male.png", 
         home: "https://img.icons8.com/metro/26/ffffff/home.png", 
         profile: "https://img.icons8.com/fluent-systems-filled/24/ffffff/name.png",
@@ -16,8 +17,9 @@ const config = {
         default_portrait: "https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         default_profile: "https://images.pexels.com/photos/3585095/pexels-photo-3585095.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     }, 
-    host_URL: "http://localhost:3001",
-    LOGO_URL: "https://img.icons8.com/metro/26/ffffff/bird.png"
+    host_URL: "http://localhost:3002",
+    LOGO_URL: "https://img.icons8.com/metro/26/ffffff/bird.png",
+    time_zone: 3,
 }
 
 module.exports = config; 

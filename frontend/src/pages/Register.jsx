@@ -18,7 +18,7 @@ const Register = props => {
     const handleInput = event => {
         setValues({
             ...form, 
-            [event.target.name]: event.target.value, 
+            [event.target.name]: event.target.value.trim(), 
         })
     }
     const goBack = () => props.history.push('/login');

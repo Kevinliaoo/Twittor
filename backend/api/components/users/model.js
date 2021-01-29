@@ -27,6 +27,8 @@ const mySchema = Schema({
             ref: 'users', 
         }
     ], 
+    profileURL: String, 
+    portraitURL: String, 
 })
 
 const model = mongoose.model('users', mySchema); 

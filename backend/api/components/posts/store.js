@@ -14,7 +14,7 @@ const addPost = async postData => {
 const getPosts = async uid => {
     return new Promise((resolve, reject) => {
         Model.find({uid: uid})
-            .populate('users')
+            .populate('uid')
             .exec((error, populated) => {
                 if(error) {
                     reject(error); 

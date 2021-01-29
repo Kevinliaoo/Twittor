@@ -36,4 +36,5 @@ const updateUser = async(uid, data) => {
 module.exports = {
     add: addUser,
     query, 
+    update: updateUser,
 }

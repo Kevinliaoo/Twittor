@@ -7,16 +7,29 @@ import Post from './Post';
 import '../assets/styles/components/Postslist.css';
 
 const Postslist = props => {
+
     return(
+        props.children ? 
         <div className="content">
-            <Post 
-                pictureURL = {config.images_URLs.user}
-                firstName = "Kevin"
-                lastName = "Liao"
-                username = "kevinliaoo" 
-                content = "Hola mundo, este es mi primer post"
-            />
-        </div>
+            {
+                props.children.reverse().map(p => {
+                    return (
+                        <Post 
+                            pictureURL = {p.uid.profileURL || config.images_URLs.default_profile}
+                            firstName = {p.uid.firstName}
+                            lastName = {p.uid.lastName}
+                            username = {p.uid.username}
+                            content = {p.content}
+                            likes = {p.likes} 
+                            comments = {p.comments}
+                            date = {p.date}
+                            postId = {p._id}
+                        />
+                    )
+                })
+            }
+        </div> : 
+        ""
     )
 }
 
