@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     controller.addUser(req.body)
-        .then(result => response.success(req, res, result, 200))
+        .then(result => response.success(req, res, result, 201))
         .catch(e => response.error(req, res, e, 500))
 })
 

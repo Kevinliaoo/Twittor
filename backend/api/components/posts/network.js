@@ -23,7 +23,7 @@ router.post('/', secure(), (req, res) => {
     // En el body hay que mandar un uid conteniendo el uid del usuario 
     controller.createPost(req.body)
         .then(() => {
-            response.success(req, res, 'Posted', 200);
+            response.success(req, res, 'Posted', 201);
         })
         .catch(error => response.error(req, res, error, 500));
 })

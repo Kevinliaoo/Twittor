@@ -16,7 +16,7 @@ db(DB_URL);
 
 const app = express();
 
-// const swaggerDoc = require('./swagger.json');
+const swaggerDoc = require('./swagger.json');
 
 app.use(bodyParser.json()); 
 app.use(flash());   // Mandar mensajes
@@ -27,9 +27,12 @@ app.use(session({
 }))
 app.use(cors());
 
+// Documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
 // Routes
 routes(app); 
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
 
 app.use(notFoundHandler);
 
