@@ -46,16 +46,16 @@ const Login = props => {
         <>
             <section className="formContainer">
                 <h2 className="title">Log in to Twittor</h2>
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="loginform" onSubmit={handleSubmit}>
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "text"
                         name = "username" 
                         placeholder = "Username: "
                         onChange = {handleInput}
                     />
                     <input 
-                        className = 'input' 
+                        className = 'loginform__input' 
                         type = "password" 
                         name = "password" 
                         placeholder = "Password: "

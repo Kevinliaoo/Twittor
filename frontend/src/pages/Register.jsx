@@ -56,46 +56,46 @@ const Register = props => {
         <>
             <section className="formContainer">
                 <h2 className="title">Create your account</h2>
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="loginform" onSubmit={handleSubmit}>
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "text"
                         name = "firstName" 
                         placeholder = "First name: "
                         onChange = {handleInput}
                     />
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "text"
                         name = "lastName" 
                         placeholder = "Last name: "
                         onChange = {handleInput}
                     />
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "text"
                         name = "username" 
                         placeholder = "Username: "
                         onChange = {handleInput}
                     />
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "password"
                         name = "password" 
                         placeholder = "Password: "
                         onChange = {handleInput}
                     />
                     <input 
-                        className = 'input'
+                        className = 'loginform__input'
                         type = "password"
                         name = "repeatPsw" 
                         placeholder = "Repeat password: "
                         onChange = {handleInput}
                     />
-                    <button className="registerbtn" id="registerbtn">
+                    <button className="loginform__submit" id="registerbtn">
                         Register
                     </button>
-                    <button className="cancelbtn" onClick={goBack}>
+                    <button className="loginform__cancelbtn" onClick={goBack}>
                         Cancel
                     </button>
                 </form>
