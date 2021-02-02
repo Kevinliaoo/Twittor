@@ -24,14 +24,14 @@ const Search = props => {
 
     return(
         <div className="searchsection">
-            <form className="searchbar">
+            <form className="searchuser">
                 <input 
-                    className = "searchuser"
+                    className = "searchuser__input"
                     id = "searchuser"
                     placeholder = "Search on Twittor"
                 /> 
-                <button onClick={searchUser}>
-                    <img className="searchbutton" src={config.images_URLs.search} alt="Search icon" />
+                <button className="searchuser__searchbtn" onClick={searchUser}>
+                    <img className="searchuser__image" src={config.images_URLs.search} alt="Search icon" />
                 </button>
             </form>
         </div>

@@ -1,59 +1,77 @@
 * {
-    border: 0px; 
-    margin: 0px;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "verdana";
+  background-color: #053554;
+}
+
+::placeholder {
+  color: #ccc8c8;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .postcontent {
-    border: 1px solid rgb(134, 145, 141);
-    display: flex; 
-    flex-direction: column;
-    padding: 2vh;
+  border: 1px solid #ccc8c8;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
 }
-
-.profilepicture {
-    width: 5vh; 
-    height: 5vh;
-    object-fit: cover;
+.postcontent .maincontent {
+  display: flex;
 }
-
-.maincontent {
-    display: flex;
+.postcontent .maincontent__image img {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
-.name {
-    font-weight: bold;
+.postcontent .maincontent__maindata {
+  display: flex;
+  margin-bottom: 1rem;
 }
-
-.username, .time {
-    color: rgb(134, 145, 141);
-    margin-left: 5px;
+.postcontent .maincontent__maindata .name {
+  font-weight: bold;
+  color: white;
 }
-
-.separator {
-    margin-top: 1vh;
-    margin-left: 1vw;
+.postcontent .maincontent__maindata .username, .postcontent .maincontent__maindata .time {
+  color: #ccc8c8;
+  margin-left: 5px;
 }
-
-.maincontent__maindata {
-    display: flex;
-    margin-bottom: 1vh;
+.postcontent .maincontent .separator {
+  margin-top: 0.3rem;
+  margin-left: 0.8rem;
 }
-
-.postactions {
-    display: flex;
-    margin-top: 2vh;
-    justify-content: space-around;
+.postcontent .maincontent__content {
+  font-size: 1.6rem;
+  color: white;
 }
-
-.comment, .like {
-    display: flex;
+.postcontent .postactions {
+  display: flex;
+  margin-top: 2vh;
+  justify-content: space-around;
 }
-.comment:hover, .like:hover {
-    cursor: pointer;
+.postcontent .postactions .comment, .postcontent .postactions .like {
+  display: flex;
 }
-
-.commentsnumbers, .likesnumber {
-    margin-top: 1vh;
-    margin-left: 1vh;
+.postcontent .postactions .comment:hover, .postcontent .postactions .like:hover {
+  cursor: pointer;
+}
+.postcontent .postactions .commentsnumbers, .postcontent .postactions .likesnumber {
+  margin-top: 1vh;
+  margin-left: 1vh;
+  color: white;
+  font-size: 1.2rem;
 }

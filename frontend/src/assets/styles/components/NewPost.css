@@ -1,57 +1,72 @@
 * {
-    border: 0px; 
-    margin: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "verdana";
+  background-color: #053554;
+}
+
+::placeholder {
+  color: #ccc8c8;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 .newpost {
-    display: flex; 
-    flex-direction: column;
-    margin-bottom: 1vh;
-    border-bottom: 1px solid rgb(134, 145, 141);
-    padding: 2vh;
+  margin: 2rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
 }
-
 .newpost__content {
-    display: flex; 
-    justify-content: flex-start;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
 }
-
-.newpost__profilepic {
-    height: 5vh; 
-    width: 5vh;
-    margin-top: 1vw;
-    margin-left: 3px;
-    object-fit: cover;
+.newpost__content img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
 }
-
-.content__input {
-    flex-grow: 2;
-    color: white;
-    font-size: 20px;
-    padding-left: 1vw;
-    padding-top: 2vh;
-    margin-left: 1vw;
-    overflow: scroll; 
-    outline: none;
-    height: 5vh;
+.newpost__content textarea {
+  font-family: "verdana";
+  font-size: 1.6rem;
+  color: white;
+  background-color: #053554;
+  overflow: scroll;
+  resize: none;
+  outline: none;
+  height: 8vh;
+  width: 100%;
+  margin-left: 1rem;
+  margin-top: 0.7rem;
+  border: none;
 }
-::placeholder {
-    color: rgba(255, 255, 255, 0.7); 
+.newpost .buttons {
+  width: 100%;
 }
-
-.buttons {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.twitbutton {
-    margin-top: 3vh;
-    width: 8vw;
-    height: 6vh;
-    border-radius: 25px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: white; 
-    background-color: rgb(3, 194, 252);
+.newpost .buttons .twitbutton {
+  position: relative;
+  float: right;
+  width: 18vw;
+  height: 6vh;
+  margin-right: 0.5rem;
+  border-radius: 25px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
+  background-color: #03c2fc;
 }

@@ -7,7 +7,7 @@ $text-color-black: black;
 $cancel-button-color: rgb(255, 54, 54); 
 $cancel-button-hover-color: rgba(255, 54, 54, 0.7); 
 
-$font: "Arial, Helvetica, sans-serif";
+$font: "verdana";
 
 $title-size: 2rem;
 
@@ -46,10 +46,12 @@ $title-size: 2rem;
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html {
     font-size: 62.5%; 
+    font-family: $font;
     background-color: $background-color;
 }
 

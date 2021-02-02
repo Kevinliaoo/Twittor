@@ -8,6 +8,9 @@ import localStorage from '../utils/localStorage';
 import '../assets/styles/pages/Login.css';
 
 const Login = props => {
+    localStorage.deleteJwt(); 
+    localStorage.deleteUser();
+
     const [form, setValues] = useState({
         username: '', 
         password: '', 
