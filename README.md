@@ -1,5 +1,7 @@
 # Twittor 
-Twittor is a simple social media clon of Twitter. 
+Twittor is a simple social media clon of Twitter. \
+\
+<a href="https://twittor-frontend.herokuapp.com/login">Click here to go to Twittor</a>
 
 ## Technologies used
 

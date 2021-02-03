@@ -18,7 +18,7 @@ const config = {
         default_portrait: "https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", 
         default_profile: "https://images.pexels.com/photos/3585095/pexels-photo-3585095.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     }, 
-    host_URL: "http://localhost:3002",
+    host_URL: "https://kevinliaoo-twittor.herokuapp.com",
     LOGO_URL: "https://img.icons8.com/metro/26/ffffff/bird.png",
     time_zone: 3,
 }
