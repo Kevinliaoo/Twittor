@@ -19,6 +19,7 @@
         &__maindata {
             display: flex;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
 
             .name {
                 font-weight: bold;
@@ -36,7 +37,7 @@
         }
 
         &__content {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: $text-color;
         }
     }

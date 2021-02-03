@@ -41,6 +41,7 @@ button:hover {
 .postcontent .maincontent__maindata {
   display: flex;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 .postcontent .maincontent__maindata .name {
   font-weight: bold;
@@ -55,7 +56,7 @@ button:hover {
   margin-left: 0.8rem;
 }
 .postcontent .maincontent__content {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: white;
 }
 .postcontent .postactions {

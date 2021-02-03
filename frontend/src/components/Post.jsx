@@ -7,6 +7,8 @@ import localStorage from '../utils/localStorage.js';
 import '../assets/styles/components/Post.css';
 
 const Post = props => {
+    const likeDiv = React.createRef();
+
     const uid = localStorage.getUser()._id;
     const isLiker = props.likes.includes(uid); 
     const dateRegex = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\..*/;
@@ -49,7 +51,29 @@ const Post = props => {
 
     }
 
+    const changeLikes = () => {
+        // Visually change likes number in frontend
+
+        const likeImage = likeDiv.current.childNodes[0]; 
+        const likeNum = likeDiv.current.childNodes[1]; 
+
+        const increment = () => {
+            likeNum.innerText = likeNum.innerText + 1; 
+            likeImage.src = config.images_URLs.like_red; 
+        }
+
+        const decrement = () => {
+            likeNum.innerText = likeNum.innerText - 1; 
+            likeImage.src = config.images_URLs.like; 
+        }
+
+        likeImage.src == config.images_URLs.like ? 
+            increment() : decrement();
+    }
+
     const likePost = ev => {
+        changeLikes(); 
+
         const config_ = {
             headers: { Authorization: `Bearer ${localStorage.getJwt()}` }
         }; 
@@ -89,7 +113,7 @@ const Post = props => {
                     </div>
                 </div>
                 <div className="postactions">
-                    <div className="like" onClick={likePost}>
+                    <div className="like" onClick={likePost} ref={likeDiv}>
                         <img 
                             src={
                                 isLiker ? 
@@ -98,7 +122,7 @@ const Post = props => {
                             } 
                             alt="Like button" 
                         />
-                        <p className="likesnumber">{props.likes.length}</p>
+                        <p className="likesnumber" id="likesnumber">{props.likes.length}</p>
                     </div>
                 </div>
             </div>

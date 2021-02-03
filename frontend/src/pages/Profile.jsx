@@ -69,58 +69,60 @@ class Profile extends React.Component {
                 <div className="left">
                     <Navbar />
                 </div>
-                <div className="middle--profile">
-                    <div className="content__header">
-                        <Link to="/">
-                            <img className="arrowimg" src={config.images_URLs.arrow} alt="Prev" />
-                        </Link>
-                        <div className="userinfo">
-                            <p className="userinfo__name">{`${this.searchUser.firstName} ${this.searchUser.lastName}`}</p>
-                            <p className="userinfo__postscount">{`${this.posts.length} posts`}</p>
-                        </div>
-                    </div>
-                    <div className="profilecontent">
-                        <img 
-                            src={this.searchUser.portraitURL || config.images_URLs.default_portrait} 
-                            alt="Portrait image" 
-                            className="portrait"
-                        />
-                        <div className="userprofile">
-                            <div className="image_and_button">
-                                <img 
-                                    src={this.searchUser.profileURL || config.images_URLs.default_profile} 
-                                    alt="User's profile pictire" 
-                                    className="userprofile__profilepicture"
-                                />
-                                {
-                                    this.user._id === this.searchUser._id ? 
-                                        <button className="followBtn" onClick={this.editProfile.bind(this)}>
-                                            Edit
-                                        </button> :
-                                        <button className="followBtn" onClick={this.toggleFollow.bind(this)} >
-                                            {
-                                                this.isFollowing ? 
-                                                "Unfollow" : 
-                                                "Follow"
-                                            }
-                                        </button>
-                                } 
-                            </div>
-                            <div className="userprofile__userinfo">
+                <div className="middle">
+                    <div className="middle--profile">
+                        <div className="content__header">
+                            <Link to="/">
+                                <img className="arrowimg" src={config.images_URLs.arrow} alt="Prev" />
+                            </Link>
+                            <div className="userinfo">
                                 <p className="userinfo__name">{`${this.searchUser.firstName} ${this.searchUser.lastName}`}</p>
-                                <p className="userprofile__username">{`@${this.searchUser.username}`}</p>
-                                <p className="userprofile__bio">{this.searchUser.bio}</p>
-                                <div className="userprofile__follows">
-                                    <p className="follow">{`${this.searchUser.following.length} Following`}</p>
-                                    <p className="userprofile__dot"> · </p>
-                                    <p className="follow">{`${this.searchUser.followers.length} Followers`}</p>
+                                <p className="userinfo__postscount">{`${this.posts.length} posts`}</p>
+                            </div>
+                        </div>
+                        <div className="profilecontent">
+                            <img 
+                                src={this.searchUser.portraitURL || config.images_URLs.default_portrait} 
+                                alt="Portrait image" 
+                                className="portrait"
+                            />
+                            <div className="userprofile">
+                                <div className="image_and_button">
+                                    <img 
+                                        src={this.searchUser.profileURL || config.images_URLs.default_profile} 
+                                        alt="User's profile pictire" 
+                                        className="userprofile__profilepicture"
+                                    />
+                                    {
+                                        this.user._id === this.searchUser._id ? 
+                                            <button className="followBtn" onClick={this.editProfile.bind(this)}>
+                                                Edit
+                                            </button> :
+                                            <button className="followBtn" onClick={this.toggleFollow.bind(this)} >
+                                                {
+                                                    this.isFollowing ? 
+                                                    "Unfollow" : 
+                                                    "Follow"
+                                                }
+                                            </button>
+                                    } 
+                                </div>
+                                <div className="userprofile__userinfo">
+                                    <p className="userinfo__name">{`${this.searchUser.firstName} ${this.searchUser.lastName}`}</p>
+                                    <p className="userprofile__username">{`@${this.searchUser.username}`}</p>
+                                    <p className="userprofile__bio">{this.searchUser.bio}</p>
+                                    <div className="userprofile__follows">
+                                        <p className="follow">{`${this.searchUser.following.length} Following`}</p>
+                                        <p className="userprofile__dot"> · </p>
+                                        <p className="follow">{`${this.searchUser.followers.length} Followers`}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <Postslist>
-                        {this.posts}
-                    </Postslist>
+                    <Postslist className="postsList">
+                            {this.posts}
+                        </Postslist>
                 </div>
                 <div className="right">
                     <Search>

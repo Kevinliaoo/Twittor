@@ -42,6 +42,10 @@ $title-size: 2rem;
     padding: 1.5rem 0 1.5rem 2rem;
 }
 
+@function makeTransparent ($color, $transparency) {
+    @return rgba($color, $transparency);
+}
+
 * {
     margin: 0;
     padding: 0; 
